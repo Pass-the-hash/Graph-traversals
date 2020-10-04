@@ -1,6 +1,7 @@
 class PriorityQueue
   include Enumerable
 
+  #attr_reader :items
   def initialize
     @items=[[], []]
   end
@@ -10,7 +11,7 @@ class PriorityQueue
   end
 
   def empty?
-    @items.empty?
+    @items[0].empty?
   end
 
 
@@ -36,7 +37,7 @@ class PriorityQueue
 
   def pop
     @items[1].pop
-    @items[0].pop
+    @items[0].pop unless @items[0].nil?
   end
 
   def size
